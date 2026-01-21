@@ -6,3 +6,4 @@ void middleGoal();
 
 void elimLongGoal();
 
+void controlZoneLongGoal();
