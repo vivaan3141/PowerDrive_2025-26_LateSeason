@@ -153,5 +153,29 @@ void elimLongGoal() {
   scorer.move(120);
 }
 
+void controlZoneLongGoal(){
+  //init
+  chassis.slew_drive_set(true);  // Enables global slew
+  chassis.slew_drive_constants_set(5_in, 50);
+  chassis.slew_turn_set(true);  // Enables global slew
+  chassis.slew_turn_constants_set(5_deg, 50);
+  //Move 30 inches forward
+  chassis.pid_drive_set(33_in, 110);
+  chassis.pid_wait();
+  //Turn 90 Right
+  chassis.pid_turn_set(270_deg, 100);
+  chassis.pid_wait();
+  //Intake + Load
+  intake.move(70);
+  pros::delay(2000);
+// down should be 22
+  chassis.pid_drive_set(-20_in, 90,false);
+  chassis.pid_wait();
+//long goal
+  intake.move(120);
+  scorer.move(120);
+// Add control zone push
+}
+
 
 
