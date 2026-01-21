@@ -252,7 +252,7 @@ void opcontrol() {
     else {
       intake.move(0);
     }
-
+    descore.button_toggle(master.get_digital(DIGITAL_Y));
 
     if (master.get_digital(DIGITAL_R2)) {
       scorer.move(127);

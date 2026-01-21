@@ -52,44 +52,44 @@ void default_constants() {
 // Drive Example
 ///
 void middleGoal() {
-  // Left Auton
+  //Left Auton
   //Initialization
   chassis.slew_drive_set(true);  // Enables global slew
   chassis.slew_drive_constants_set(5_in, 50);
-
   chassis.slew_turn_set(true);  // Enables global slew
   chassis.slew_turn_constants_set(5_deg, 50);
-  //Move 16.5in forward
-  chassis.pid_drive_set(16.5, DRIVE_SPEED, true);
-  chassis.pid_wait();
 
-  //Turn 90 deg left
-  chassis.pid_turn_set(270_deg, 110);
-  chassis.pid_wait();
-  // Forward 8 in
 
-   chassis.pid_drive_set(8, DRIVE_SPEED, true);
+  //Move 16.5 inches forward
+  chassis.pid_drive_set(16.5_in, 110);
   chassis.pid_wait();
+  //Turn 90 Left 
+  chassis.pid_turn_set(270_deg, 90);
+  chassis.pid_wait();
+  //Forward 8
+  chassis.pid_drive_set(8_in, 110);
+  chassis.pid_wait();
+  //Turn 90 Right
+  chassis.pid_turn_set(0_deg, 90);
+  chassis.pid_wait();
+  //Forward 24 inches 
+  intake.move(70);
 
-  //turn 90 rigth
-  chassis.pid_turn_set(0_deg, 110);
+  chassis.pid_drive_set(24_in, 40,false);
   chassis.pid_wait();
-  //forward 20in
-  intake.move(127);
+  
+  pros::delay(1000);
 
-  chassis.pid_drive_set(20, 67, true);
-  chassis.pid_wait();
   intake.move(0);
-
-  //turn 135 left
-  chassis.pid_turn_set(225_deg, 110);
+  chassis.pid_drive_set(-7_in, 110,false);
   chassis.pid_wait();
-  //back 15in
-  chassis.pid_drive_set(-14, DRIVE_SPEED, true);
+  //Turn 135 left 
+  chassis.pid_turn_set(225_deg, 90);
   chassis.pid_wait();
-  pros::delay(10);
+  //Back 15 inches
+  chassis.pid_drive_set(-15_in, 110);
+  chassis.pid_wait();
 
-  //SCORE blocks 
   intake.move(127);
   scorer.move(-127);
 }

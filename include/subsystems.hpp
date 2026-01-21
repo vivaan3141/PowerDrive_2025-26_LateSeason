@@ -9,6 +9,7 @@ extern Drive chassis;
 
 inline pros::MotorGroup intake({-9, 21});
 inline pros::Motor scorer(17);
+inline ez::Piston descore('A');
 
 
 // inline pros::Motor intake(1);
