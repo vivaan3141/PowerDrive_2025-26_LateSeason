@@ -1,5 +1,7 @@
 #pragma once
 
+// Init()
+
 void default_constants();
 
 // Worst case
